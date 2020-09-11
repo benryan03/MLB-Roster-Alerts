@@ -49,7 +49,7 @@ namespace MLB_Trade_Alerts
                 }    
             }
 
-            // Find roster moves from today, and print them
+            // Find roster moves from yesterday, and print them
             // Time zones may be an issue here
             int tradeQuantity = tradesList.Count;
             for (int x = 0; x < tradeQuantity; x++)
