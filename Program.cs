@@ -18,14 +18,19 @@ namespace MLB_Trade_Alerts
             //string Team = Console.ReadLine();
             //Console.WriteLine(Team);
 
+            // Load roster move webpage
             var url = "https://www.mlb.com/redsox/roster/transactions/2020/09/";
             var web = new HtmlWeb();
             var doc = web.Load(url);
+
+            // Scrape roster move dates and descriptions from 'roster_table' on the webpage
             var nodes = doc.DocumentNode.SelectNodes("//table[@class='roster__table']/tbody/tr/td");
 
             List<string> datesList = new List<string>();
             List<string> tradesList = new List<string>();
 
+            // Store dates in datesList and roster moves in tradesList
+            // datesList[0] is the date for the roster move in tradesList[0]
             int iteration = 0;
             foreach (var x in nodes)
             {
