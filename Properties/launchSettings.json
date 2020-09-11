@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MLB-Trade-Alerts": {
+      "commandName": "Project",
+      "commandLineArgs": "-redsox"
+    }
+  }
+}

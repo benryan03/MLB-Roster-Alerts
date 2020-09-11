@@ -9,17 +9,21 @@ namespace MLB_Trade_Alerts
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("MLB TRADE ALERTS");
+            // Parse arguments
+            // If no arguments given, default team is all MLB teams
+            string team = "mlb";
+            if (args.Length != 0)
+            {
+                team = args[0].Substring(1);
+            }
 
-            string currentDate = DateTime.Now.ToString("MM/dd/yy"); ;
-            Console.WriteLine(currentDate + "\n");
+            string yesterdayDate = DateTime.Now.AddDays(-1).ToString("MM/dd/yy"); ;
 
-            //Console.WriteLine("Enter team: ");
-            //string Team = Console.ReadLine();
-            //Console.WriteLine(Team);
+            Console.WriteLine(team.ToUpper() + " TRADE ALERTS"); // DEBUG
+            Console.WriteLine(yesterdayDate + "\n"); // DEBUG
 
             // Load roster move webpage
-            var url = "https://www.mlb.com/redsox/roster/transactions/2020/09/";
+            string url = "https://www.mlb.com/" + team + "/roster/transactions/2020/09/";
             var web = new HtmlWeb();
             var doc = web.Load(url);
 
@@ -50,9 +54,8 @@ namespace MLB_Trade_Alerts
             int tradeQuantity = tradesList.Count;
             for (int x = 0; x < tradeQuantity; x++)
             {
-                if (datesList[x] == currentDate)
+                if (datesList[x] == yesterdayDate)
                 {
-                    Console.WriteLine(datesList[x]);
                     Console.WriteLine(tradesList[x]);
                 }
             }
