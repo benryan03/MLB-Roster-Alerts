@@ -24,29 +24,30 @@ namespace MLB_Trade_Alerts
             var doc = web.Load(url);
 
             // Scrape roster move dates and descriptions from 'roster_table' on the webpage
-            var nodes = doc.DocumentNode.SelectNodes("//table[@class='roster__table']/tbody/tr/td");
+            var scrapedElements = doc.DocumentNode.SelectNodes("//table[@class='roster__table']/tbody/tr/td");
 
             List<string> datesList = new List<string>();
             List<string> tradesList = new List<string>();
 
-            // Store dates in datesList and roster moves in tradesList
+            // Populate dates in datesList and roster moves in tradesList
             // datesList[0] is the date for the roster move in tradesList[0]
             int iteration = 0;
-            foreach (var x in nodes)
+            foreach (var x in scrapedElements)
             {
                 iteration++;
-                if (iteration % 2 != 0) // Odd
+                if (iteration % 2 != 0) // Odd - element is date
                 {
                     datesList.Add(x.InnerText);
                 }
-                else // Even
+                else // Even - element is roster move
                 {
                     tradesList.Add(x.InnerText);
                 }    
             }
 
+            // Find roster moves from today, and print them
+            // Time zones may be an issue here
             int tradeQuantity = tradesList.Count;
-
             for (int x = 0; x < tradeQuantity; x++)
             {
                 if (datesList[x] == currentDate)
