@@ -21,14 +21,12 @@ namespace MLB_Trade_Alerts
 
             // Arguments are valid - parse them
             string team = args[0];
+            string teamFormatted = FormatTeam(team);
             string toAddressString = args[1];
             string fromAddressString = args[2];
             string fromPasswordString = @args[3];
 
             string yesterdayDate = DateTime.Now.AddDays(-1).ToString("MM/dd/yy"); ;
-
-            Console.WriteLine(team.ToUpper() + " TRADE ALERTS"); // DEBUG
-            Console.WriteLine(yesterdayDate + "\n"); // DEBUG
 
             // Load roster move webpage
             string url = "https://www.mlb.com/" + team + "/roster/transactions/2020/09/";
@@ -58,7 +56,7 @@ namespace MLB_Trade_Alerts
             }
 
             // Find roster moves from yesterday, and add them to body of email
-            // Time zones may be an issue here
+            // Time zones may be an issue here?
             string emailBody = "";
             int tradeQuantity = tradesList.Count;
             for (int x = 0; x < tradeQuantity; x++)
@@ -72,9 +70,9 @@ namespace MLB_Trade_Alerts
 
             // Bring together email details that have already been inputted
             MailAddress toAddress = new MailAddress(toAddressString);
-            MailAddress fromAddress = new MailAddress(fromAddressString, team + " Roster Alerts");
+            MailAddress fromAddress = new MailAddress(fromAddressString, teamFormatted + " Roster Alerts");
             string fromPassword = fromPasswordString;
-            string subject = team + " roster moves from " + yesterdayDate;
+            string subject = teamFormatted + " roster moves from " + yesterdayDate;
 
             // Establish connection to SMTP server
             SmtpClient smtp = new SmtpClient
@@ -88,14 +86,12 @@ namespace MLB_Trade_Alerts
             };
 
             // Send email
-            using (MailMessage message = new MailMessage(fromAddress, toAddress)
+            using MailMessage message = new MailMessage(fromAddress, toAddress)
             {
                 Subject = subject,
                 Body = emailBody
-            })
-            {
-                smtp.Send(message);
-            }
+            };
+            smtp.Send(message);
         }
 
         static bool AreArgsValid(string[] args)
@@ -154,6 +150,31 @@ namespace MLB_Trade_Alerts
             catch
             {
                 return false;
+            }
+        }
+
+        // Convert team name with all lowercase and no spaces to proper team name
+        static string FormatTeam(string team)
+        {
+            if (team == "redsox")
+            {
+                return "Red Sox";
+            }
+            else if (team == "whitesox")
+            {
+                return "White Sox";
+            }
+            else if (team == "bluejays")
+            {
+                return "Blue Jays";
+            }
+            else if (team == "mlb")
+            {
+                return "MLB";
+            }
+            else
+            {
+                return (char.ToUpper(team[0]) + team.Substring(1));
             }
         }
     }
