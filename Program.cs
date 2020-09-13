@@ -63,7 +63,6 @@ namespace MLB_Trade_Alerts
             {
                 if (datesList[x] == yesterdayDate)
                 {
-                    Console.WriteLine(tradesList[x]);
                     emailBody += tradesList[x] + "\n\n";
                 }
             }
