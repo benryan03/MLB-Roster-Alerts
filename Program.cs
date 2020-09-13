@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Net;
 
 
-namespace MLB_Trade_Alerts
+namespace MLB_Roster_Alerts
 {
     class Program
     {
