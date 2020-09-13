@@ -74,9 +74,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ben\\Desktop\\C#\\MLB-Trade-Alerts\\MLB-Roster-Alerts.csproj",
-      "projectName": "MLB-Roster-Alerts",
-      "projectPath": "C:\\Users\\Ben\\Desktop\\C#\\MLB-Trade-Alerts\\MLB-Roster-Alerts.csproj",
+      "projectUniqueName": "C:\\Users\\Ben\\Desktop\\C#\\MLB-Trade-Alerts\\MLB-Trade-Alerts.csproj",
+      "projectName": "MLB-Trade-Alerts",
+      "projectPath": "C:\\Users\\Ben\\Desktop\\C#\\MLB-Trade-Alerts\\MLB-Trade-Alerts.csproj",
       "packagesPath": "C:\\Users\\Ben\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Ben\\Desktop\\C#\\MLB-Trade-Alerts\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "irgcCDGOIJCyXi2MNBsXIwrou2T52gK/YVOD2gmqtLg8kTz3qL/I0URUkYrEAx92Jy5POsFS27rByPK0FoWbmg==",
+  "dgSpecHash": "2o2eqMEjHOBw+p0K6UkVggfdKqTMb3daF9lb2dMSwnjNLQSb55QyHEH3bycuTfmYGEiiyGrZVtJ7EjKLh32pRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ben\\Desktop\\C#\\MLB-Trade-Alerts\\MLB-Roster-Alerts.csproj",
+  "projectFilePath": "C:\\Users\\Ben\\Desktop\\C#\\MLB-Trade-Alerts\\MLB-Trade-Alerts.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ben\\.nuget\\packages\\htmlagilitypack\\1.11.24\\htmlagilitypack.1.11.24.nupkg.sha512"
   ],
