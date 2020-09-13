@@ -57,26 +57,26 @@ namespace MLB_Trade_Alerts
                 }    
             }
 
-            string emailBody = "";
-
-            // Find roster moves from yesterday, and print them
+            // Find roster moves from yesterday, and add them to body of email
             // Time zones may be an issue here
+            string emailBody = "";
             int tradeQuantity = tradesList.Count;
             for (int x = 0; x < tradeQuantity; x++)
             {
                 if (datesList[x] == yesterdayDate)
                 {
                     Console.WriteLine(tradesList[x]);
-                    emailBody += tradesList[x] + "\n";
+                    emailBody += tradesList[x] + "\n\n";
                 }
             }
 
-
+            // Bring together email details that have already been inputted
             MailAddress toAddress = new MailAddress(toAddressString);
             MailAddress fromAddress = new MailAddress(fromAddressString, team + " Roster Alerts");
             string fromPassword = fromPasswordString;
             string subject = team + " roster moves from " + yesterdayDate;
 
+            // Establish connection to SMTP server
             SmtpClient smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -86,6 +86,8 @@ namespace MLB_Trade_Alerts
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
             };
+
+            // Send email
             using (MailMessage message = new MailMessage(fromAddress, toAddress)
             {
                 Subject = subject,
@@ -141,7 +143,7 @@ namespace MLB_Trade_Alerts
             return true;
         }
 
-        // Thanks to https://stackoverflow.com/questions/498400/
+        // Thanks to https://stackoverflow.com/questions/498400/ for this method
         static bool IsValidEmail(string email)
         {
             try
