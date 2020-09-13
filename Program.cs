@@ -96,10 +96,23 @@ namespace MLB_Trade_Alerts
 
         static bool AreArgsValid(string[] args)
         {
+            string[] validTeams =
+            {
+                "angels", "astros", "athletics", "bluejays", "braves", "brewers",
+                "cardinals", "cubs", "diamondbacks", "dodgers", "giants", "indians", 
+                "mariners", "marlins", "mets", "mlb", "nationals", "orioles",
+                "padres", "phillies", "pirates", "rangers", "rays", "redsox", "reds",
+                "rockies", "royals", "tigers", "twins", "whitesox", "yankees"
+            };
+
             if (args[0] == null)
             {
                 // Error: no team
                 return false;
+            }
+            else if (validTeams.Contains(args[0]) == false)
+            {
+                // Error: invalid team
             }
 
             if (args[1] != null)
