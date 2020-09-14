@@ -12,3 +12,4 @@ C:\Users\Ben\Desktop\C#\MLB-Roster-Alerts\obj\Release\netcoreapp3.1\MLB-Roster-A
 C:\Users\Ben\Desktop\C#\MLB-Roster-Alerts\obj\Release\netcoreapp3.1\MLB-Roster-Alerts.dll
 C:\Users\Ben\Desktop\C#\MLB-Roster-Alerts\obj\Release\netcoreapp3.1\MLB-Roster-Alerts.pdb
 C:\Users\Ben\Desktop\C#\MLB-Roster-Alerts\obj\Release\netcoreapp3.1\MLB-Roster-Alerts.genruntimeconfig.cache
+C:\Users\Ben\Desktop\C#\MLB-Roster-Alerts\obj\Release\netcoreapp3.1\MLB-Roster-Alerts.csprojAssemblyReference.cache

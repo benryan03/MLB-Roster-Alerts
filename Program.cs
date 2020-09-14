@@ -67,6 +67,11 @@ namespace MLB_Roster_Alerts
                 }
             }
 
+            if (emailBody == "")
+            {
+                emailBody = "No roster moves on " + yesterdayDate;
+            }
+
             // Bring together email details that have already been inputted
             MailAddress toAddress = new MailAddress(toAddressString);
             MailAddress fromAddress = new MailAddress(fromAddressString, teamFormatted + " Roster Alerts");
@@ -91,6 +96,15 @@ namespace MLB_Roster_Alerts
                 Body = emailBody
             };
             smtp.Send(message);
+
+            // Write to log file
+            using (System.IO.StreamWriter log = new System.IO.StreamWriter(@"log.txt", true))
+            {
+                log.Write(DateTime.Now + "\n");
+                log.Write(subject + "\n");
+                log.Write(emailBody + "\n\n");
+
+            }
         }
 
         static bool AreArgsValid(string[] args)
