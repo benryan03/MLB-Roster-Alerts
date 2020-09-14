@@ -14,3 +14,4 @@ Setup instructions:
 3. Task should trigger daily at 12:00 AM
 4. For Action, select MLB-Roster-Alerts.exe
 5. Add arguments as specified above.
+6. Make sure "Allow less secure apps" is turned on in the settings for the sending Gmail account.
